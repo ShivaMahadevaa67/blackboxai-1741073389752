@@ -1,0 +1,105 @@
+/* Sidebar styling */
+.left-sidebar {
+    width: 260px;
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+    transition: all 0.2s ease;
+}
+
+.sidebar-nav {
+    padding: 15px 0;
+    height: calc(100% - 180px);
+    /* Account for logo and profile section */
+    overflow-y: auto;
+}
+
+/* Hide scrollbar for cleaner look */
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Sidebar Item Styles */
+.sidebar-item {
+    position: relative;
+    margin-bottom: 2px;
+    list-style: none;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 15px;
+    color: #4F5467;
+    gap: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 7px;
+    margin: 0 10px;
+    transition: all 0.2s ease;
+}
+
+/* Selected states styling */
+.sidebar-item.selected>.sidebar-link {
+    background-color: var(--bs-primary, #3699FF);
+    color: #fff;
+}
+
+.sidebar-item.selected>.sidebar-link i,
+.sidebar-item.selected>.sidebar-link .hide-menu {
+    color: #fff;
+}
+
+.sidebar-item.active>.sidebar-link {
+    color: var(--bs-primary, #3699FF);
+    font-weight: 500;
+}
+
+/* Submenu styling */
+.first-level {
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.first-level.show {
+    max-height: 500px;
+    /* Adjust as needed */
+}
+
+/* Icon styling */
+.sidebar-link i {
+    font-size: 18px;
+    color: #9da5b5;
+    transition: all 0.2s ease;
+}
+
+/* Nav cap styling */
+.nav-small-cap {
+    font-size: 12px;
+    padding: 14px 15px;
+    color: #9da5b5;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 1199px) {
+    .left-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .left-sidebar.showSidebar {
+        transform: translateX(0);
+    }
+}
